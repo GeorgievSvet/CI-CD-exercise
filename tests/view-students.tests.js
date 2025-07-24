@@ -1,6 +1,5 @@
 const assert = require('assert');
-const fetch = require('node-fetch');
-
+const fetch = (...args) => import('node-fetch').then(mod => mod.default(...args));
 suite('View Students page', function() {
   test('Page title', async function() {
     let res = await fetch("http://localhost:8888/students");
